@@ -1,0 +1,11 @@
+services:
+  ft-actu:
+    build: .
+    image: ft-actu:latest
+    container_name: ft-actu
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./data:/data
+    ports:
+      - "127.0.0.1:8080:8080"   # à publier via ton reverse proxy HTTPS

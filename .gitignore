@@ -1,0 +1,6 @@
+.env
+data/
+compose.override.yml
+.playwright-mcp/
+__pycache__/
+*.pyc
