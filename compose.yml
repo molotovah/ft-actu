@@ -1,7 +1,7 @@
 services:
   ft-actu:
     build: .
-    image: ft-actu:latest
+    image: ghcr.io/molotovah/ft-actu:latest
     container_name: ft-actu
     restart: unless-stopped
     env_file: .env

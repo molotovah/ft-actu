@@ -1,5 +1,7 @@
 # Actualisation France Travail
 
+[![Docker image](https://github.com/molotovah/ft-actu/actions/workflows/docker.yml/badge.svg)](https://github.com/molotovah/ft-actu/actions/workflows/docker.yml)
+
 Un petit serveur auto-hébergé (Docker) qui s'occupe de ton **actualisation mensuelle France Travail** :
 il surveille le calendrier, te demande confirmation au bon moment et remplit le formulaire à ta place.
 Une interface web te montre où tu en es.
@@ -64,9 +66,13 @@ cd ft-actu
 cp .env.example .env
 chmod 600 .env
 nano .env          # remplis tes identifiants, l'adresse Gmail, le mot de passe d'application et BASE_URL
-docker compose up -d --build
+docker compose pull          # image prête (amd64 et arm64), ou `docker compose build` pour la construire
+docker compose up -d
 docker compose logs ft-actu
 ```
+
+L'image est publiée sur `ghcr.io/molotovah/ft-actu` par GitHub Actions à chaque mise à jour de `main`
+(`latest`) et pour chaque version `vX.Y.Z`. Mise à jour : `docker compose pull && docker compose up -d`.
 
 Les logs affichent un **lien de première configuration** :
 
